@@ -3,7 +3,7 @@
 
 Practical integration patterns for connecting traditional finance systems with DeFi protocols.
 
-**Live Site:** https://defi-bian-framework.vercel.app/ *(URL will be updated soon)*
+**Live Site:** https://dian-framework.vercel.app/
 
 ---
 
