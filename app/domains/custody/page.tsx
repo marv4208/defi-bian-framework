@@ -112,7 +112,7 @@ export default function CustodyAssetManagement() {
                   <ul className="text-sm text-neutral-dark space-y-1">
                     <li>• Gnosis Safe (4-of-6 multisig: CFO, CEO, 2x directors, 2x advisors)</li>
                     <li>• Fireblocks MPC for transaction signing + compliance layer</li>
-                    <li>• On-chain spending limits ($100k/day auto-approved, >$100k requires vote)</li>
+                    <li>• On-chain spending limits ($100k/day auto-approved, &gt;$100k requires vote)</li>
                   </ul>
                 </div>
 
