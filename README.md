@@ -97,3 +97,6 @@ Specializing in CeFi ↔ DeFi integration architecture and consulting.
 ## License
 
 © 2026 Marlena DeHart. All rights reserved.
+
+---
+*Last updated: February 15, 2026*
