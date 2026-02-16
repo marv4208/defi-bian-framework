@@ -88,9 +88,9 @@ Master's in Blockchain & Digital Currencies, University of Nicosia
 
 Specializing in CeFi ↔ DeFi integration architecture and consulting.
 
-- **LinkedIn:** linkedin.com/in/marlena-dehart
+- **LinkedIn:** linkedin.com/in/marleneveum
 - **GitHub:** github.com/marv4208
-- **Email:** marlena@dianframework.com
+- **Email:** marlene@kyberstrategy.com
 
 ---
 

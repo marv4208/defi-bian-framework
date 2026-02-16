@@ -61,7 +61,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Connect</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://linkedin.com/in/marlena-dehart" target="_blank" rel="noopener noreferrer" className="text-neutral-light hover:text-foreground-inverse transition-colors">
+                <a href="https://www.linkedin.com/in/marleneveum/" target="_blank" rel="noopener noreferrer" className="text-neutral-light hover:text-foreground-inverse transition-colors">
                   LinkedIn
                 </a>
               </li>
@@ -71,7 +71,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:marlena@dianframework.com" className="text-neutral-light hover:text-foreground-inverse transition-colors">
+                <a href="mailto:marlene@kyberstrategy.com" className="text-neutral-light hover:text-foreground-inverse transition-colors">
                   Email
                 </a>
               </li>

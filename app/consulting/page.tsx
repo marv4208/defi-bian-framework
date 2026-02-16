@@ -132,7 +132,7 @@ export default function Consulting() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://calendly.com/marlena-dehart/discovery"
+              href="https://calendly.com/marleneveum/discovery"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 bg-accent hover:bg-accent-light text-white rounded-md transition-colors font-medium"
@@ -140,7 +140,7 @@ export default function Consulting() {
               Schedule Discovery Call
             </a>
             <a
-              href="mailto:marlena@defibian.com"
+              href="mailto:marlene@kyberstrategy.com"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary hover:bg-gray-50 rounded-md transition-colors font-medium"
             >
               Email Me

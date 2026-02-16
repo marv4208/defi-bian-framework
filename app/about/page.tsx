@@ -160,7 +160,7 @@ export default function About() {
                 Work With Me
               </a>
               <a
-                href="mailto:marlena@dianframework.com"
+                href="mailto:marlene@kyberstrategy.com"
                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-gray-50 rounded-md transition-colors font-medium"
               >
                 Get In Touch
