@@ -18,7 +18,7 @@ export default function Home() {
               Practical integration patterns for connecting traditional finance systems with DeFi protocols.
             </p>
             <p className="text-lg text-neutral-light max-w-2xl mx-auto mb-12">
-              Inspired by BIAN's service-oriented architecture, adapted for the decentralized world. 
+              Inspired by <a href="https://bian.org/about-bian/" target="_blank" rel="noopener noreferrer" className="text-success hover:text-accent underline font-semibold">The Banking Industry Architecture Network (BIAN)</a>'s service-oriented architecture, adapted for the decentralized world. 
               Learn how CeFi systems integrate with DeFi using real-world patterns, case studies, and technical implementations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
