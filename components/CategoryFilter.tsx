@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function CategoryFilter() {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
-  const categories = ['ALL', 'Protocol Updates', 'Integration', 'Case Studies', 'Regulatory'];
+  const categories = ['ALL', 'Protocol Updates', 'Integration', 'Web3 Security', 'Case Studies', 'Regulatory'];
 
   return (
     <section className="bg-white border-b border-gray-300 sticky top-16 z-40">

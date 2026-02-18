@@ -18,22 +18,25 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/blog" className="text-secondary hover:text-primary transition-colors font-medium">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <Link href="/blog" className="text-secondary hover:text-primary transition-colors font-medium text-sm lg:text-base">
               Blog
             </Link>
-            <Link href="/framework" className="text-secondary hover:text-primary transition-colors font-medium">
+            <Link href="/security" className="text-secondary hover:text-primary transition-colors font-medium text-sm lg:text-base">
+              Security
+            </Link>
+            <Link href="/framework" className="text-secondary hover:text-primary transition-colors font-medium text-sm lg:text-base">
               Framework
             </Link>
-            <Link href="/explorer" className="text-secondary hover:text-primary transition-colors font-medium">
+            <Link href="/explorer" className="text-secondary hover:text-primary transition-colors font-medium text-sm lg:text-base">
               Explorer
             </Link>
-            <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium">
+            <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium text-sm lg:text-base">
               About
             </Link>
             <Link
               href="/consulting"
-              className="px-5 py-2 bg-accent hover:bg-accent-light text-white rounded-lg transition-colors font-medium shadow-sm"
+              className="px-4 lg:px-5 py-2 bg-accent hover:bg-accent-light text-white rounded-lg transition-colors font-medium shadow-sm text-sm lg:text-base"
             >
               Consulting
             </Link>
@@ -75,6 +78,20 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
             >
               Blog
+            </Link>
+            <Link
+              href="/security"
+              className="block px-3 py-2 text-secondary hover:text-primary hover:bg-gray-50 rounded-md transition-colors font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Security
+            </Link>
+            <Link
+              href="/archive"
+              className="block px-3 py-2 text-secondary hover:text-primary hover:bg-gray-50 rounded-md transition-colors font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Archive
             </Link>
             <Link
               href="/framework"

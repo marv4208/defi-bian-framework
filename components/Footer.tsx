@@ -23,13 +23,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/framework" className="text-secondary hover:text-accent transition-colors">
-                  Overview
+                <Link href="/security" className="text-secondary hover:text-accent transition-colors">
+                  Web3 Security
                 </Link>
               </li>
               <li>
-                <Link href="/mappings" className="text-secondary hover:text-accent transition-colors">
-                  Integration Patterns
+                <Link href="/archive" className="text-secondary hover:text-accent transition-colors">
+                  Article Archive
+                </Link>
+              </li>
+              <li>
+                <Link href="/framework" className="text-secondary hover:text-accent transition-colors">
+                  Overview
                 </Link>
               </li>
               <li>
