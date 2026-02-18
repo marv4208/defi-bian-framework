@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${post.title} | DIAN Framework Blog`,
+    title: `${post.title} | DIAN Framework`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -45,29 +45,38 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const relatedPosts = getAllPosts()
+    .filter((p) => p.slug !== post.slug && p.category === post.category)
+    .slice(0, 3);
+
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-[#F5F3F0]">
       {/* Article Header */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <Link href="/blog" className="text-secondary hover:text-accent transition-colors font-medium">
-            ← Back to Blog
+          <Link href="/blog" className="text-accent hover:text-accent-light transition-colors font-medium inline-flex items-center">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Journal
           </Link>
         </div>
 
-        <header className="mb-12">
-          <span className="inline-block px-3 py-1 bg-accent text-white text-sm font-bold rounded-full mb-4">
+        <header className="mb-12 text-center">
+          <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
             {post.category}
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-6">{post.title}</h1>
-          <div className="flex items-center gap-4 text-neutral-dark">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+            {post.title}
+          </h1>
+          <div className="flex items-center justify-center gap-6 text-secondary">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-light rounded-full flex items-center justify-center text-white font-bold">
                 {post.author.split(' ').map((n) => n[0]).join('')}
               </div>
-              <div>
+              <div className="text-left">
                 <p className="font-medium text-primary">{post.author}</p>
-                <p className="text-sm text-neutral">
+                <p className="text-sm text-secondary">
                   {new Date(post.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
@@ -83,36 +92,63 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
         {/* Cover Image */}
         {post.coverImage && (
-          <div className="mb-12 rounded-lg overflow-hidden">
+          <div className="mb-12 rounded-lg overflow-hidden shadow-xl">
             <img
               src={post.coverImage}
               alt={post.title}
-              className="w-full h-96 object-cover"
+              className="w-full h-[400px] object-cover"
             />
           </div>
         )}
 
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none">
-          <div className="text-neutral-dark leading-relaxed">
-            <MDXRemote source={post.content} />
+        <div className="bg-white rounded-lg p-8 sm:p-12 shadow-sm mb-12">
+          <div className="prose prose-lg max-w-none">
+            <div className="text-secondary leading-relaxed">
+              <MDXRemote source={post.content} />
+            </div>
           </div>
         </div>
 
-        {/* Newsletter Signup (inline) */}
-        <NewsletterSignup variant="inline" />
+        {/* Newsletter Signup */}
+        <div className="mb-12">
+          <div className="bg-white rounded-lg p-8 border-2 border-accent/20">
+            <h3 className="font-serif text-2xl font-bold text-primary mb-3 text-center">
+              Get Integration Insights in Your Inbox
+            </h3>
+            <p className="text-secondary text-center mb-6">
+              Join professionals staying ahead of CeFi ↔ DeFi integration trends.
+            </p>
+            <form className="max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-colors"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-        {/* Article Footer */}
-        <footer className="mt-12 pt-8 border-t border-neutral-light">
+        {/* Article Footer - Social Share */}
+        <footer className="bg-white rounded-lg p-8 shadow-sm">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
             <div>
-              <p className="text-sm text-neutral mb-2">Share this article</p>
+              <p className="text-sm font-bold text-primary mb-3">Share this article</p>
               <div className="flex gap-3">
                 <a
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://dianframework.com/blog/${post.slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-neutral-dark rounded-md transition-colors text-sm font-medium"
+                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-neutral-dark rounded-lg transition-colors text-sm font-medium"
                 >
                   Twitter
                 </a>
@@ -120,16 +156,16 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://dianframework.com/blog/${post.slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-neutral-dark rounded-md transition-colors text-sm font-medium"
+                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-neutral-dark rounded-lg transition-colors text-sm font-medium"
                 >
                   LinkedIn
                 </a>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm text-neutral mb-2">Author</p>
-              <p className="font-bold text-primary">{post.author}</p>
-              <Link href="/about" className="text-sm text-accent hover:text-secondary">
+              <p className="text-sm font-bold text-primary mb-2">Author</p>
+              <p className="font-medium text-primary">{post.author}</p>
+              <Link href="/about" className="text-sm text-accent hover:text-accent-light">
                 View profile →
               </Link>
             </div>
@@ -138,30 +174,38 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       </article>
 
       {/* Related Articles */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-primary mb-8">Continue Reading</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {getAllPosts()
-              .filter((p) => p.slug !== post.slug)
-              .slice(0, 3)
-              .map((relatedPost) => (
+      {relatedPosts.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-4xl font-bold text-primary mb-12 text-center">
+              Continue Reading
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.slug}
                   href={`/blog/${relatedPost.slug}`}
-                  className="bg-background p-6 rounded-lg border border-neutral-light hover:border-accent transition-colors"
+                  className="group bg-[#F5F3F0] rounded-lg overflow-hidden hover:shadow-xl transition-all"
                 >
-                  <span className="text-xs font-bold text-neutral uppercase">{relatedPost.category}</span>
-                  <h3 className="text-lg font-bold text-primary mt-2 mb-2 line-clamp-2">
-                    {relatedPost.title}
-                  </h3>
-                  <p className="text-sm text-neutral-dark line-clamp-2">{relatedPost.excerpt}</p>
-                  <p className="text-xs text-neutral mt-3">{relatedPost.readingTime}</p>
+                  <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center">
+                    <div className="text-5xl">📄</div>
+                  </div>
+                  <div className="p-6">
+                    <span className="text-xs font-bold text-accent uppercase tracking-wider">
+                      {relatedPost.category}
+                    </span>
+                    <h3 className="font-serif text-xl font-bold text-primary mt-2 mb-2 line-clamp-2 group-hover:text-accent transition-colors">
+                      {relatedPost.title}
+                    </h3>
+                    <p className="text-sm text-secondary line-clamp-2 mb-3">{relatedPost.excerpt}</p>
+                    <p className="text-xs text-neutral">{relatedPost.readingTime}</p>
+                  </div>
                 </Link>
               ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 }

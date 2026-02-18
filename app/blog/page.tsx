@@ -1,138 +1,153 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import CategoryFilter from '@/components/CategoryFilter';
 
 export const metadata = {
-  title: 'Blog - DIAN Framework | CeFi ↔ DeFi Integration Insights',
+  title: 'The Journal - DIAN Framework | CeFi ↔ DeFi Integration Insights',
   description: 'Daily analysis, protocol updates, and integration patterns for connecting traditional finance with DeFi.',
 };
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
-  const featuredPost = posts[0];
-  const recentPosts = posts.slice(1, 7);
-
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-white pt-12 pb-8 border-b border-neutral-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold text-primary mb-4">DIAN Insights</h1>
-          <p className="text-xl text-secondary max-w-2xl">
-            Daily analysis on CeFi ↔ DeFi integration, protocol updates, and emerging patterns
+    <main className="min-h-screen bg-[#F5F3F0]">
+      {/* Hero Section */}
+      <section className="bg-[#F5F3F0] pt-16 pb-12 border-b border-gray-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-serif text-6xl sm:text-7xl font-bold text-primary mb-6">
+            The Journal
+          </h1>
+          <p className="text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
+            Your gateway to insights, strategies, and inspiration to elevate CeFi ↔ DeFi integration—with a fun mix of technical depth and everyday innovation.
           </p>
         </div>
       </section>
 
-      {/* Featured Article */}
-      {featuredPost && (
-        <section className="section-sm bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="card border-2 border-accent p-8">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <span className="inline-block px-3 py-1 bg-accent text-white text-sm font-bold rounded-full mb-4">
-                    Featured
-                  </span>
-                  <h2 className="text-3xl font-bold text-primary mb-4">
-                    <Link href={`/blog/${featuredPost.slug}`} className="hover:text-accent transition-colors">
-                      {featuredPost.title}
-                    </Link>
-                  </h2>
-                  <p className="text-secondary mb-4 leading-relaxed">{featuredPost.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-neutral mb-6">
-                    <span className="font-medium">{featuredPost.author}</span>
-                    <span>•</span>
-                    <span>{new Date(featuredPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                    <span>•</span>
-                    <span>{featuredPost.readingTime}</span>
-                  </div>
-                  <Link
-                    href={`/blog/${featuredPost.slug}`}
-                    className="text-accent hover:text-accent-light font-medium inline-flex items-center"
-                  >
-                    Read article 
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-                <div className="bg-gradient-to-br from-accent to-accent-light rounded-lg h-64 flex items-center justify-center text-white">
-                  {featuredPost.coverImage ? (
-                    <img src={featuredPost.coverImage} alt={featuredPost.title} className="w-full h-full object-cover rounded-lg" />
-                  ) : (
-                    <div className="text-6xl">📰</div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Category Filter Bar */}
+      <CategoryFilter />
 
-      {/* Newsletter Signup */}
-      <NewsletterSignup variant="featured" />
-
-      {/* Recent Articles */}
-      <section className="section bg-gray-50">
+      {/* Article Grid */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-primary mb-12">Recent Articles</h2>
-          
-          {recentPosts.length === 0 ? (
-            <div className="text-center py-12 card">
+          {posts.length === 0 ? (
+            <div className="text-center py-16 bg-white rounded-lg">
               <p className="text-xl text-secondary mb-4">No articles yet. Check back soon!</p>
               <p className="text-neutral">Daily CeFi ↔ DeFi integration insights coming soon.</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {recentPosts.map((post) => (
-                <article key={post.slug} className="card hover:shadow-xl">
-                  <div className="bg-gradient-to-br from-accent to-accent-light h-48 flex items-center justify-center text-white rounded-t-lg -mx-6 -mt-6 mb-6">
+              {posts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Article Image */}
+                  <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/40 relative overflow-hidden">
                     {post.coverImage ? (
-                      <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover rounded-t-lg" />
+                      <img 
+                        src={post.coverImage} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                      />
                     ) : (
-                      <div className="text-5xl">📄</div>
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div className="text-6xl text-white">📰</div>
+                      </div>
                     )}
                   </div>
-                  <span className="inline-block px-2 py-1 bg-gray-100 text-neutral text-xs font-bold rounded mb-3">
-                    {post.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-primary mb-2 line-clamp-2">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-accent transition-colors">
+                  
+                  {/* Article Content */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-bold text-accent uppercase tracking-wider">
+                        {post.category}
+                      </span>
+                      <span className="text-xs text-neutral">
+                        {new Date(post.date).toLocaleDateString('en-US', { 
+                          month: '2-digit', 
+                          day: '2-digit', 
+                          year: '2-digit' 
+                        }).replace(/\//g, '.')}
+                      </span>
+                    </div>
+                    
+                    <h3 className="font-serif text-2xl font-bold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
                       {post.title}
-                    </Link>
-                  </h3>
-                  <p className="text-secondary text-sm mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-neutral">
-                    <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                    <span>{post.readingTime}</span>
+                    </h3>
+                    
+                    <p className="text-secondary text-sm mb-4 line-clamp-3 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-neutral">{post.readingTime}</span>
+                      <span className="text-sm font-medium text-accent group-hover:text-accent-light">
+                        Read more →
+                      </span>
+                    </div>
                   </div>
-                </article>
+                </Link>
+              ))}
+              
+              {/* Coming Soon Placeholders */}
+              {posts.length < 6 && [1, 2, 3].map((i) => (
+                <div key={`placeholder-${i}`} className="bg-white rounded-lg overflow-hidden opacity-60">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <div className="text-5xl">⏳</div>
+                  </div>
+                  <div className="p-6">
+                    <span className="text-xs font-bold text-neutral uppercase tracking-wider">
+                      Coming Soon
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold text-primary mt-3 mb-3">
+                      {
+                        i === 1 ? 'Uniswap V4 Integration Deep Dive' :
+                        i === 2 ? 'zkSync Era: Layer 2 for Institutions' :
+                        'MakerDAO Endgame Strategy Analysis'
+                      }
+                    </h3>
+                    <p className="text-secondary text-sm leading-relaxed">
+                      In-depth analysis and integration patterns. Publishing soon.
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="section bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-primary mb-12">Browse by Category</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { name: 'Protocol Updates', icon: '🔄', count: '12' },
-              { name: 'Integration Guides', icon: '🔧', count: '8' },
-              { name: 'Case Studies', icon: '📊', count: '5' },
-              { name: 'Regulatory News', icon: '⚖️', count: '6' },
-            ].map((category) => (
-              <div key={category.name} className="card hover:shadow-xl cursor-pointer text-center">
-                <div className="text-5xl mb-3">{category.icon}</div>
-                <h3 className="font-bold text-primary mb-1">{category.name}</h3>
-                <p className="text-sm text-secondary">{category.count} articles</p>
-              </div>
-            ))}
-          </div>
+      {/* Newsletter Signup */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-4xl font-bold text-primary mb-4">
+            Subscribe to DIAN Insights
+          </h2>
+          <p className="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+            Get daily CeFi ↔ DeFi integration analysis, protocol updates, and exclusive insights delivered to your inbox.
+          </p>
+          <NewsletterSignup variant="featured" />
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section className="py-16 bg-[#F5F3F0]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-4xl font-bold text-primary mb-4">
+            Need Custom Integration Strategy?
+          </h2>
+          <p className="text-xl text-secondary mb-8 max-w-2xl mx-auto">
+            Work with an expert to design your CeFi ↔ DeFi integration roadmap.
+          </p>
+          <Link
+            href="/consulting"
+            className="inline-block px-8 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-colors"
+          >
+            Explore Consulting Services
+          </Link>
         </div>
       </section>
     </main>
