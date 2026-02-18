@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate-image": "node scripts/generate-image.js",
+    "update-mdx-images": "node scripts/update-mdx-images.js",
+    "batch-images": "node scripts/generate-image.js --batch && node scripts/update-mdx-images.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

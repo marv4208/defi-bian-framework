@@ -52,9 +52,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
     <main className="min-h-screen bg-[#F5F3F0]">
       {/* Article Header */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
-          <Link href="/blog" className="text-accent hover:text-accent-light transition-colors font-medium inline-flex items-center">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="mb-6 sm:mb-8">
+          <Link href="/blog" className="text-accent hover:text-accent-light transition-colors font-medium inline-flex items-center text-sm sm:text-base">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -62,11 +62,11 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </Link>
         </div>
 
-        <header className="mb-12 text-center">
-          <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
+        <header className="mb-8 sm:mb-12 text-center">
+          <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full mb-4 sm:mb-6 uppercase tracking-wider">
             {post.category}
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 sm:mb-6 leading-tight px-2">
             {post.title}
           </h1>
           <div className="flex items-center justify-center gap-6 text-secondary">
@@ -92,17 +92,17 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
         {/* Cover Image */}
         {post.coverImage && (
-          <div className="mb-12 rounded-lg overflow-hidden shadow-xl">
+          <div className="mb-8 sm:mb-12 rounded-lg overflow-hidden shadow-xl -mx-4 sm:mx-0">
             <img
               src={post.coverImage}
               alt={post.title}
-              className="w-full h-[400px] object-cover"
+              className="w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
             />
           </div>
         )}
 
         {/* Article Content */}
-        <div className="bg-white rounded-lg p-8 sm:p-12 shadow-sm mb-12">
+        <div className="bg-white rounded-lg p-6 sm:p-8 md:p-12 shadow-sm mb-8 sm:mb-12">
           <div className="prose prose-lg max-w-none">
             <div className="text-secondary leading-relaxed">
               <MDXRemote source={post.content} />
