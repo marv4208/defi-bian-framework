@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+interface CategoryFilterProps {
+  selectedCategory: string;
+  onCategoryChange: (category: string) => void;
+}
 
-export default function CategoryFilter() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+export default function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryFilterProps) {
   const categories = ['ALL', 'Protocol Updates', 'Integration', 'Web3 Security', 'Case Studies', 'Regulatory'];
 
   return (
@@ -14,8 +16,8 @@ export default function CategoryFilter() {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`text-xs sm:text-sm font-medium whitespace-nowrap transition-colors px-1 ${
+                onClick={() => onCategoryChange(category)}
+                className={`text-xs sm:text-sm font-medium whitespace-nowrap transition-colors px-1 cursor-pointer ${
                   selectedCategory === category
                     ? 'text-primary border-b-2 border-accent pb-1'
                     : 'text-secondary hover:text-primary'
