@@ -26,3 +26,10 @@ Article: Chainlink CCIP: Cross-Chain Treasury Management
 Filename: chainlink-ccip-treasury-integration.jpg
 Prompt:
 Modern DeFi protocol infrastructure diagram, smart contract network visualization, abstract geometric shapes, blue gradient background, technical precision aesthetic, no text --ar 16:9 --style raw --v 6
+
+
+=== 2026-02-27T15:00:04.476Z ===
+Article: Stablecoin Yield Strategies for Corporate Treasuries
+Filename: corporate-stablecoin-yield-strategies.jpg
+Prompt:
+Professional blockchain integration architecture, corporate network connecting to DeFi protocols, geometric data flows, blue teal gradient, clean minimal fintech aesthetic, no text --ar 16:9 --style raw --v 6
