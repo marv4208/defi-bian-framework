@@ -66,8 +66,17 @@ function getNextTopic(state) {
     const index = (state.lastTopicIndex + 1 + i) % ARTICLE_TOPICS.length;
     const topic = ARTICLE_TOPICS[index];
     
-    if (!state.publishedSlugs.includes(topic.slug)) {
+    // Check both state and actual file existence
+    const articlePath = path.join(__dirname, '..', 'content', 'blog', `${topic.slug}.mdx`);
+    const fileExists = fs.existsSync(articlePath);
+    
+    if (!state.publishedSlugs.includes(topic.slug) && !fileExists) {
       return { topic, index };
+    } else if (fileExists && !state.publishedSlugs.includes(topic.slug)) {
+      // File exists but not tracked—add to state
+      console.log(`⚠️  Article already exists: ${topic.slug}.mdx (adding to state)`);
+      state.publishedSlugs.push(topic.slug);
+      saveState(state);
     }
   }
   
