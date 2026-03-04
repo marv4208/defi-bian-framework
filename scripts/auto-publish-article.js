@@ -80,11 +80,8 @@ function getNextTopic(state) {
     }
   }
   
-  // All published, reset and start over
-  console.log('All topics published, resetting queue...');
-  state.publishedSlugs = [];
-  saveState(state);
-  return { topic: ARTICLE_TOPICS[0], index: 0 };
+  // All topics published—exit gracefully
+  return null;
 }
 
 function generateMidjourneyPrompt(topic) {
@@ -163,8 +160,20 @@ async function main() {
   
   // Load state
   const state = loadState();
-  const { topic, index } = getNextTopic(state);
+  const result = getNextTopic(state);
   
+  if (!result) {
+    console.log('\n' + '='.repeat(60));
+    console.log('✅ ALL TOPICS PUBLISHED');
+    console.log('='.repeat(60));
+    console.log('\nAll articles in the current queue have been published.');
+    console.log('Add new topics to ARTICLE_TOPICS array in auto-publish-article.js');
+    console.log('or manually reset the queue by editing .auto-publish-state.json');
+    console.log('='.repeat(60));
+    return;
+  }
+  
+  const { topic, index } = result;
   console.log(`📝 Selected topic: ${topic.title}`);
   
   // Generate Midjourney prompt
