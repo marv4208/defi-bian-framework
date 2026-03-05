@@ -43,6 +43,42 @@ const ARTICLE_TOPICS = [
     category: "Integration",
     slug: "corporate-stablecoin-yield-strategies",
     keywords: "USDC, DAI, yield, treasury, sDAI"
+  },
+  {
+    title: "Real-World Asset Tokenization: 2026 Market Update",
+    category: "Integration",
+    slug: "rwa-tokenization-2026",
+    keywords: "RWA, tokenization, MakerDAO, Centrifuge, real estate, bonds"
+  },
+  {
+    title: "Ethereum Shanghai Upgrade: Impact on Institutional Staking",
+    category: "Protocol Updates",
+    slug: "ethereum-shanghai-institutional-staking",
+    keywords: "Ethereum, Shanghai, staking, withdrawals, Lido, RocketPool"
+  },
+  {
+    title: "Privacy-Preserving DeFi with Zero-Knowledge Proofs",
+    category: "Web3 Security",
+    slug: "zk-proofs-defi-privacy",
+    keywords: "zero-knowledge, zk-SNARKs, privacy, Aztec, Tornado Cash"
+  },
+  {
+    title: "Account Abstraction (ERC-4337) for Corporate Wallets",
+    category: "Integration",
+    slug: "erc-4337-corporate-wallets",
+    keywords: "ERC-4337, account abstraction, smart wallets, session keys"
+  },
+  {
+    title: "Decentralized Identity Solutions for Institutional KYC",
+    category: "Web3 Security",
+    slug: "did-institutional-kyc",
+    keywords: "DID, decentralized identity, verifiable credentials, KYC"
+  },
+  {
+    title: "Google Cloud Universal Ledger: Enterprise Blockchain Infrastructure",
+    category: "Web3 Security",
+    slug: "google-cloud-universal-ledger",
+    keywords: "Google Cloud, Universal Ledger, enterprise blockchain, compliance, multi-currency"
   }
 ];
 
