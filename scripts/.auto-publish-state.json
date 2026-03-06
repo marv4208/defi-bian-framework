@@ -1,5 +1,5 @@
 {
-  "lastTopicIndex": 6,
+  "lastTopicIndex": 7,
   "publishedSlugs": [
     "institutional-defi-lending-q1-2026",
     "layer-2-cost-comparison-2026",
@@ -7,6 +7,7 @@
     "chainlink-ccip-treasury-integration",
     "corporate-stablecoin-yield-strategies",
     "rwa-tokenization-2026",
-    "ethereum-shanghai-institutional-staking"
+    "ethereum-shanghai-institutional-staking",
+    "zk-proofs-defi-privacy"
   ]
 }

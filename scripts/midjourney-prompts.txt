@@ -61,3 +61,10 @@ Article: Ethereum Shanghai Upgrade: Impact on Institutional Staking
 Filename: ethereum-shanghai-institutional-staking.jpg
 Prompt:
 Modern DeFi protocol infrastructure diagram, smart contract network visualization, abstract geometric shapes, blue gradient background, technical precision aesthetic, no text --ar 16:9 --style raw --v 6
+
+
+=== 2026-03-06T15:00:04.505Z ===
+Article: Privacy-Preserving DeFi with Zero-Knowledge Proofs
+Filename: zk-proofs-defi-privacy.jpg
+Prompt:
+Cybersecurity shield with blockchain elements, cryptographic protection layers, geometric security visualization, blue teal colors, professional security aesthetic, no text --ar 16:9 --style raw --v 6
