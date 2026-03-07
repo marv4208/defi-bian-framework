@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import type { BlogPost } from '@/lib/blog';
 
 interface BlogSidebarProps {
@@ -11,7 +10,6 @@ interface BlogSidebarProps {
 }
 
 export default function BlogSidebar({ allPosts, selectedCategory, onCategoryChange }: BlogSidebarProps) {
-  const [isOpen, setIsOpen] = useState(false);
 
   // Get category counts
   const categoryCounts = allPosts.reduce((acc, post) => {
@@ -40,35 +38,9 @@ export default function BlogSidebar({ allPosts, selectedCategory, onCategoryChan
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-white p-3 rounded-lg shadow-lg"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          {isOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
-
-      {/* Overlay for mobile */}
-      {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-30"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
+      {/* Sidebar - Hidden on mobile and tablet, visible on desktop only */}
       <aside
-        className={`
-          fixed lg:sticky top-0 left-0 h-screen w-72 bg-white border-r border-gray-200
-          overflow-y-auto z-40 transition-transform duration-300
-          ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        `}
+        className="hidden xl:block sticky top-0 left-0 h-screen w-72 bg-white border-r border-gray-200 overflow-y-auto"
       >
         <div className="p-6 space-y-8">
           {/* Logo/Brand */}
@@ -135,10 +107,7 @@ export default function BlogSidebar({ allPosts, selectedCategory, onCategoryChan
                 return (
                   <button
                     key={category.value}
-                    onClick={() => {
-                      onCategoryChange(category.value);
-                      setIsOpen(false);
-                    }}
+                    onClick={() => onCategoryChange(category.value)}
                     className={`
                       w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium
                       transition-colors
