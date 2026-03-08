@@ -131,64 +131,12 @@ function generateMidjourneyPrompt(topic) {
   return prompts[topic.category] || prompts["Integration"];
 }
 
+// Import content generator
+const { generateArticleContent: generateContent } = require('./generate-article-content.js');
+
 async function generateArticleContent(topic) {
-  // This would call Claude API in production
-  // For now, return a template
-  const today = new Date().toISOString().split('T')[0];
-  
-  return `---
-title: "${topic.title}"
-date: "${today}"
-excerpt: "Deep technical analysis of ${topic.keywords.split(',')[0].trim()} and its implications for institutional DeFi integration."
-author: "Marlena DeHart"
-category: "${topic.category}"
-readingTime: "8 min read"
-coverImage: "/images/blog/${topic.slug}.jpg"
----
-
-[AI-GENERATED CONTENT PLACEHOLDER]
-
-This article covers:
-- Technical analysis of ${topic.keywords}
-- Integration patterns for institutions
-- Cost-benefit analysis
-- Risk assessment
-- Implementation roadmap
-
-## Introduction
-
-[Content to be generated via Claude API]
-
-## Key Technical Details
-
-[Content to be generated via Claude API]
-
-## Integration Patterns
-
-[Content to be generated via Claude API]
-
-## Cost-Benefit Analysis
-
-[Content to be generated via Claude API]
-
-## Conclusion
-
-[Content to be generated via Claude API]
-
----
-
-## Need Help with DeFi Integration?
-
-[Standard CTA]
-
-**[Schedule Consultation →](/consulting)**
-
-**[View Framework →](/framework)**
-
----
-
-*Marlena DeHart advises institutions on DeFi integration and security architecture. Master's in Blockchain & Digital Currencies, University of Nicosia.*
-`;
+  // Use the content generator module
+  return generateContent(topic);
 }
 
 async function main() {
