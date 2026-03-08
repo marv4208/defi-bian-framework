@@ -4,9 +4,9 @@ import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
-// Revalidate every 1 hour (3600 seconds)
-// This auto-refreshes content without redeployment
-export const revalidate = 3600;
+// Revalidate every 1 minute (60 seconds)
+// This ensures fresh content appears quickly after updates
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
