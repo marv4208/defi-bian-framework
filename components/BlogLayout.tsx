@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import BlogSidebar from './BlogSidebar';
 import type { BlogPost } from '@/lib/blog';
 
 interface BlogLayoutProps {
@@ -27,29 +26,83 @@ export default function BlogLayout({ allPosts }: BlogLayoutProps) {
     { name: 'Web3 Security', icon: '🔐', posts: allPosts.filter(p => p.category === 'Web3 Security') },
   ];
 
+  // Get category counts
+  const categoryCounts = allPosts.reduce((acc, post) => {
+    acc[post.category] = (acc[post.category] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const categories = [
+    { name: 'All Articles', value: 'ALL', icon: '📚', count: allPosts.length },
+    { name: 'Integration', value: 'Integration', icon: '🔗', count: categoryCounts['Integration'] || 0 },
+    { name: 'Protocol Updates', value: 'Protocol Updates', icon: '🔄', count: categoryCounts['Protocol Updates'] || 0 },
+    { name: 'Web3 Security', value: 'Web3 Security', icon: '🔐', count: categoryCounts['Web3 Security'] || 0 },
+  ];
+
   return (
-    <div className="flex min-h-screen bg-[#F5F3F0]">
-      {/* Sidebar */}
-      <BlogSidebar
-        allPosts={allPosts}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-      />
+    <div className="min-h-screen bg-[#F5F3F0]">
+      {/* Header with Horizontal Navigation */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Top bar */}
+          <div className="py-4 border-b border-gray-100">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary">
+                  The Journal
+                </h1>
+                <p className="text-secondary text-sm mt-1">
+                  Insights on CeFi ↔ DeFi integration
+                </p>
+              </div>
+              <Link
+                href="/"
+                className="text-sm text-accent hover:text-accent-light font-medium"
+              >
+                ← Back to Home
+              </Link>
+            </div>
+          </div>
+
+          {/* Horizontal Category Navigation */}
+          <nav className="py-3 overflow-x-auto">
+            <div className="flex items-center gap-2 min-w-max">
+              {categories.map((category) => {
+                const isActive = selectedCategory === category.value;
+                return (
+                  <button
+                    key={category.value}
+                    onClick={() => setSelectedCategory(category.value)}
+                    className={`
+                      flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
+                      transition-all duration-200 whitespace-nowrap
+                      ${isActive 
+                        ? 'bg-accent text-white shadow-md' 
+                        : 'bg-gray-100 text-secondary hover:bg-gray-200'
+                      }
+                    `}
+                  >
+                    <span>{category.icon}</span>
+                    <span>{category.name}</span>
+                    <span className={`
+                      text-xs px-2 py-0.5 rounded-full
+                      ${isActive 
+                        ? 'bg-white/20 text-white' 
+                        : 'bg-gray-200 text-neutral'
+                      }
+                    `}>
+                      {category.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
+        </div>
+      </header>
 
       {/* Main Content */}
-      <main className="flex-1 w-full">
-        {/* Header */}
-        <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2">
-              The Journal
-            </h1>
-            <p className="text-secondary text-lg">
-              Insights on CeFi ↔ DeFi integration
-            </p>
-          </div>
-        </header>
-
+      <main className="w-full">
         {selectedCategory === 'ALL' ? (
           <>
             {/* Featured Article Hero */}
@@ -154,16 +207,10 @@ export default function BlogLayout({ allPosts }: BlogLayoutProps) {
           <section className="py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-8">
-                <button
-                  onClick={() => setSelectedCategory('ALL')}
-                  className="text-sm text-accent hover:text-accent-light font-medium mb-4"
-                >
-                  ← Back to all articles
-                </button>
-                <h2 className="font-serif text-3xl font-bold text-primary">
+                <h2 className="font-serif text-3xl font-bold text-primary mb-2">
                   {selectedCategory}
                 </h2>
-                <p className="text-secondary mt-2">
+                <p className="text-secondary">
                   {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
                 </p>
               </div>
