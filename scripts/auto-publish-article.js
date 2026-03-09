@@ -85,6 +85,18 @@ const ARTICLE_TOPICS = [
     category: "Integration",
     slug: "us-clarity-act-institutional-impact",
     keywords: "Clarity Act, regulation, market structure, institutional adoption, JPMorgan"
+  },
+  {
+    title: "DeFi AML Compliance: Lessons from Bithumb's South Korea Ban",
+    category: "Web3 Security",
+    slug: "defi-aml-compliance-bithumb",
+    keywords: "AML, compliance, travel rule, FATF, Chainalysis, institutional risk management"
+  },
+  {
+    title: "DeFi Insurance Protocols: Institutional Risk Mitigation",
+    category: "Web3 Security",
+    slug: "defi-insurance-institutional-risk",
+    keywords: "insurance, Nexus Mutual, InsurAce, smart contract risk, institutional coverage"
   }
 ];
 
