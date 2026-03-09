@@ -1,5 +1,5 @@
 {
-  "lastTopicIndex": 10,
+  "lastTopicIndex": 11,
   "publishedSlugs": [
     "institutional-defi-lending-q1-2026",
     "layer-2-cost-comparison-2026",
@@ -11,6 +11,7 @@
     "zk-proofs-defi-privacy",
     "erc-4337-corporate-wallets",
     "did-institutional-kyc",
-    "google-cloud-universal-ledger"
+    "google-cloud-universal-ledger",
+    "us-clarity-act-institutional-impact"
   ]
 }

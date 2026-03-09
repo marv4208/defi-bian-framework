@@ -89,3 +89,10 @@ Article: Google Cloud Universal Ledger: Enterprise Blockchain Infrastructure
 Filename: google-cloud-universal-ledger.jpg
 Prompt:
 Cybersecurity shield with blockchain elements, cryptographic protection layers, geometric security visualization, blue teal colors, professional security aesthetic, no text --ar 16:9 --style raw --v 6
+
+
+=== 2026-03-09T20:31:00.137Z ===
+Article: US Clarity Act: Market Structure Impact on Institutional DeFi
+Filename: us-clarity-act-institutional-impact.jpg
+Prompt:
+Professional blockchain integration architecture, corporate network connecting to DeFi protocols, geometric data flows, blue teal gradient, clean minimal fintech aesthetic, no text --ar 16:9 --style raw --v 6
