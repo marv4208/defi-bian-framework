@@ -79,6 +79,12 @@ const ARTICLE_TOPICS = [
     category: "Web3 Security",
     slug: "google-cloud-universal-ledger",
     keywords: "Google Cloud, Universal Ledger, enterprise blockchain, compliance, multi-currency"
+  },
+  {
+    title: "US Clarity Act: Market Structure Impact on Institutional DeFi",
+    category: "Integration",
+    slug: "us-clarity-act-institutional-impact",
+    keywords: "Clarity Act, regulation, market structure, institutional adoption, JPMorgan"
   }
 ];
 
