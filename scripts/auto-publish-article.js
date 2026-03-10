@@ -97,6 +97,12 @@ const ARTICLE_TOPICS = [
     category: "Web3 Security",
     slug: "defi-insurance-institutional-risk",
     keywords: "insurance, Nexus Mutual, InsurAce, smart contract risk, institutional coverage"
+  },
+  {
+    title: "Chainlink Oracle Infrastructure: Powering Institutional RWA Tokenization",
+    category: "Integration",
+    slug: "chainlink-rwa-tokenization-2026",
+    keywords: "Chainlink, RWA, real-world assets, oracles, GLDY, Edena, LINK ETF, CFTC"
   }
 ];
 
