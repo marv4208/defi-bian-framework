@@ -484,7 +484,7 @@ contract ProtocolOwnedLiquidity {
               <strong>2. MEV-protected execution:</strong>
               <ul className="ml-6 mt-2 space-y-1 text-neutral-dark">
                 <li>• Used Cowswap for all sales (batch auction mechanism prevents front-running)</li>
-                <li>• Set maximum slippage tolerances (rejected sales >1% slippage)</li>
+                <li>• Set maximum slippage tolerances (rejected sales &gt;1% slippage)</li>
                 <li>• <strong>Result:</strong> Average execution 17% BETTER than market TWAP (saved treasury $800K vs naive selling)</li>
               </ul>
             </li>

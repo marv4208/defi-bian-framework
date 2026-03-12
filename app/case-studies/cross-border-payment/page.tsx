@@ -339,7 +339,7 @@ contract BatchUSDCPayment {
           </div>
 
           <p className="font-bold mt-6">
-            💡 <strong>ROI Break-even:</strong> For payment volumes >$500K/month, break-even typically occurs within 
+            💡 <strong>ROI Break-even:</strong> For payment volumes &gt;$500K/month, break-even typically occurs within 
             2-3 months due to eliminated wire fees and FX spreads.
           </p>
 

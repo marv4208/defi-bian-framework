@@ -51,7 +51,7 @@ export default function InstitutionalTreasury() {
               <li>• <strong>Additional income:</strong> $8.2M over 18 months</li>
               <li>• <strong>Sharpe ratio:</strong> 12.4 (exceptional risk-adjusted returns)</li>
               <li>• <strong>Max drawdown:</strong> -0.08% (single day, fully recovered within 24 hours)</li>
-              <li>• <strong>Liquidity events:</strong> 23 redemptions totaling $47M, all settled <24 hours</li>
+              <li>• <strong>Liquidity events:</strong> 23 redemptions totaling $47M, all settled &lt;24 hours</li>
               <li>• <strong>Smart contract incidents:</strong> 0 (no exploits, no losses)</li>
             </ul>
           </div>
@@ -146,7 +146,7 @@ export default function InstitutionalTreasury() {
 
           <p><strong>Operational Automation:</strong></p>
           <ul className="space-y-2 my-4">
-            <li><strong>Rebalancing bot:</strong> Daily monitoring of allocation drift, auto-rebalance if >5% deviation from targets</li>
+            <li><strong>Rebalancing bot:</strong> Daily monitoring of allocation drift, auto-rebalance if &gt;5% deviation from targets</li>
             <li><strong>Yield optimization:</strong> Weekly analysis of lending rates across protocols, shift capital to highest risk-adjusted yield</li>
             <li><strong>Liquidity management:</strong> Predictive model for redemption flows, pre-positioning capital in Tier 1 before redemption windows</li>
             <li><strong>Risk monitoring:</strong> Real-time TVL tracking, exploit detection (integrated with Forta alerts), circuit breakers for rapid withdrawals</li>
@@ -236,10 +236,10 @@ contract TreasuryPolicy {
 
           <p><strong>Risk mitigation during scale-up:</strong></p>
           <ul className="space-y-2 my-4">
-            <li>• Implemented circuit breakers: Auto-withdraw if protocol TVL drops >20% in 24 hours</li>
+            <li>• Implemented circuit breakers: Auto-withdraw if protocol TVL drops &gt;20% in 24 hours</li>
             <li>• Diversified across 5 protocols (no single point of failure)</li>
             <li>• Maintained $15M in traditional money market as "break glass" reserve</li>
-            <li>• Weekly stress tests: Simulated redemption scenarios, validated <24hr full liquidation capability</li>
+            <li>• Weekly stress tests: Simulated redemption scenarios, validated &lt;24hr full liquidation capability</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-primary mt-12 mb-4">Performance Analysis (18 Months)</h2>
@@ -332,8 +332,8 @@ contract TreasuryPolicy {
             <li>
               <strong className="text-primary">2. Diversification:</strong>
               <ul className="ml-6 mt-2 space-y-1 text-neutral-dark">
-                <li>• No single protocol >35% of DeFi allocation</li>
-                <li>• No single risk category (lending, LP, institutional) >50%</li>
+                <li>• No single protocol &gt;35% of DeFi allocation</li>
+                <li>• No single risk category (lending, LP, institutional) &gt;50%</li>
                 <li>• Geographic diversification of off-ramp providers (3 continents)</li>
               </ul>
             </li>
@@ -358,14 +358,14 @@ contract TreasuryPolicy {
               <ul className="ml-6 mt-2 space-y-1 text-neutral-dark">
                 <li>• Forta network alerts for protocol exploits (5-minute response SLA)</li>
                 <li>• Dune Analytics dashboard: TVL, utilization rates, yields (refreshed every 15 min)</li>
-                <li>• PagerDuty escalation for: TVL drops >20%, yield drops >50 bps, depeg events >0.5%</li>
+                <li>• PagerDuty escalation for: TVL drops &gt;20%, yield drops &gt;50 bps, depeg events &gt;0.5%</li>
               </ul>
             </li>
             <li>
               <strong className="text-primary">6. Automated Circuit Breakers:</strong>
               <ul className="ml-6 mt-2 space-y-1 text-neutral-dark">
-                <li>• Auto-withdraw if protocol TVL drops >20% in 24 hours</li>
-                <li>• Auto-pause new deployments if Chainlink oracle stale/deviation >1%</li>
+                <li>• Auto-withdraw if protocol TVL drops &gt;20% in 24 hours</li>
+                <li>• Auto-pause new deployments if Chainlink oracle stale/deviation &gt;1%</li>
                 <li>• Manual override requires 4-of-6 multisig (prevents panic withdrawals from false positives)</li>
               </ul>
             </li>
@@ -390,7 +390,7 @@ contract TreasuryPolicy {
             <p className="mb-3">
               <strong>Resolution:</strong> External legal counsel (Cooley LLP) provided opinion that DeFi lending qualified under 
               existing prime broker exemptions, as long as: (1) counterparties were smart contracts, not legal entities, (2) 
-              collateralization was >100%, (3) positions were marked-to-market daily.
+              collateralization was &gt;100%, (3) positions were marked-to-market daily.
             </p>
             <p>
               <strong>Cost:</strong> $45K legal fees. <strong>Timeline:</strong> 3 weeks. <strong>Outcome:</strong> Board approval 
@@ -564,7 +564,7 @@ contract TreasuryPolicy {
 
           <p className="mt-6"><strong>Recommended for:</strong></p>
           <ul className="space-y-1 my-4">
-            <li>• Hedge funds with >$50M cash reserves</li>
+            <li>• Hedge funds with &gt;$50M cash reserves</li>
             <li>• Family offices seeking yield on operating capital</li>
             <li>• Endowments/foundations with liquidity constraints but multi-year horizons</li>
             <li>• Corporate treasuries (post-pilot validation by pioneering funds)</li>
