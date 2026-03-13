@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
-import { Roboto, Montserrat, PT_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { FooterNew } from "@/components/FooterNew";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import PriceTicker from "@/components/PriceTicker";
 
-const roboto = Roboto({ 
-  weight: ['300', '400', '500', '700'],
-  subsets: ["latin"], 
-  variable: "--font-roboto" 
-});
-
-const montserrat = Montserrat({ 
-  weight: ['600', '700', '800'],
-  subsets: ["latin"], 
-  variable: "--font-montserrat" 
-});
-
-const ptMono = PT_Mono({ 
-  weight: ['400'],
-  subsets: ["latin"], 
-  variable: "--font-pt-mono" 
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: "DIAN Framework | Decentralized Integration Architecture Network",
@@ -40,13 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${montserrat.variable} ${ptMono.variable}`}>
-      <body className="antialiased font-sans">
-        <Header />
-        <div className="pt-16 md:pt-20">
-          {children}
-        </div>
-        <FooterNew />
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="antialiased">
+        <Navigation />
+        <PriceTicker />
+        {children}
+        <Footer />
       </body>
     </html>
   );
