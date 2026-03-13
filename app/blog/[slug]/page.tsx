@@ -78,7 +78,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div className="flex items-center justify-center gap-6 text-secondary">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-light rounded-full flex items-center justify-center text-white font-bold">
-                {post.author.split(' ').map((n) => n[0]).join('')}
+                {post.author.split(' ').map((n: string) => n[0]).join('')}
               </div>
               <div className="text-left">
                 <p className="font-medium text-primary">{post.author}</p>

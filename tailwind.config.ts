@@ -9,63 +9,69 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern Ledger Palette
-        primary: {
-          DEFAULT: '#181919',  // Thamar Black
-          light: '#242C34',     // Gunmetal (for hover states)
-        },
-        secondary: {
-          DEFAULT: '#264653',   // Dark Teal
-          light: '#2A5F6D',     // Lighter teal
-        },
-        accent: {
-          DEFAULT: '#2E865F',   // Forest Green (CTAs)
-          light: '#3A9B6F',
-        },
-        success: '#C6F4D6',     // Mint (positive metrics)
-        neutral: {
-          DEFAULT: '#808D8E',   // Gunmetal Grey
-          light: '#A0AAAB',
-          dark: '#5A6364',
-        },
-        background: {
-          DEFAULT: '#FFFFFF',   // White
-          dark: '#0F1010',      // Near-black for dark mode
-        },
-        foreground: {
-          DEFAULT: '#181919',   // Black on light
-          inverse: '#FFFFFF',   // White on dark
-        },
+        // Paper Design System Colors
+        primary: "#111111",
+        secondary: "#8B5CF6",
+        success: "#16A34A",
+        warning: "#D97706",
+        danger: "#DC2626",
+        surface: "#FFFFFF",
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
-        mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+        sans: ['var(--font-roboto)', 'Roboto', 'system-ui', 'sans-serif'],
+        display: ['var(--font-montserrat)', 'Montserrat', 'sans-serif'],
+        mono: ['var(--font-pt-mono)', 'PT Mono', 'monospace'],
+      },
+      fontSize: {
+        xs: "14px",
+        sm: "16px",
+        base: "18px",
+        lg: "24px",
+        xl: "32px",
+        "2xl": "40px",
+        "3xl": "48px",
+      },
+      spacing: {
+        xs: "4px",
+        sm: "8px",
+        md: "12px",
+        base: "16px",
+        lg: "24px",
+        xl: "32px",
+      },
+      boxShadow: {
+        paper: "0 4px 6px rgba(0, 0, 0, 0.07)",
+        "paper-hover": "0 10px 15px rgba(0, 0, 0, 0.1)",
+        "paper-lg": "0 20px 25px rgba(0, 0, 0, 0.15)",
       },
       typography: {
         DEFAULT: {
           css: {
-            color: '#181919',
+            color: '#111827',
             a: {
-              color: '#264653',
+              color: '#8B5CF6',
               '&:hover': {
-                color: '#2E865F',
+                color: '#7C3AED',
               },
             },
             h1: {
-              color: '#181919',
+              color: '#111111',
+              fontFamily: 'Montserrat, sans-serif',
             },
             h2: {
-              color: '#181919',
+              color: '#111111',
+              fontFamily: 'Montserrat, sans-serif',
             },
             h3: {
-              color: '#264653',
+              color: '#111111',
+              fontFamily: 'Montserrat, sans-serif',
             },
             code: {
-              color: '#264653',
-              backgroundColor: '#F5F5F5',
+              color: '#8B5CF6',
+              backgroundColor: '#F3F4F6',
               padding: '0.2em 0.4em',
               borderRadius: '0.25em',
+              fontFamily: 'PT Mono, monospace',
             },
             'code::before': {
               content: '""',
