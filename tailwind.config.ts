@@ -9,61 +9,79 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern Ledger Palette
+        // Fresh Modern Palette (inspired by CV site)
         primary: {
-          DEFAULT: '#181919',  // Thamar Black
-          light: '#242C34',     // Gunmetal (for hover states)
+          DEFAULT: '#50E3C2',  // Fresh Teal/Cyan
+          light: '#6EEBD4',    // Lighter teal
+          dark: '#3DCFB2',     // Darker teal
         },
         secondary: {
-          DEFAULT: '#264653',   // Dark Teal
-          light: '#2A5F6D',     // Lighter teal
+          DEFAULT: '#1E40AF',  // Deep Blue
+          light: '#3B82F6',    // Lighter blue
+          dark: '#1E3A8A',     // Darker blue
         },
         accent: {
-          DEFAULT: '#2E865F',   // Forest Green (CTAs)
-          light: '#3A9B6F',
+          DEFAULT: '#A78BFA',  // Soft Purple
+          light: '#C4B5FD',    // Lighter purple
+          dark: '#8B5CF6',     // Darker purple
         },
-        success: '#C6F4D6',     // Mint (positive metrics)
+        success: '#10B981',    // Green
+        warning: '#F59E0B',    // Amber
+        danger: '#EF4444',     // Red
         neutral: {
-          DEFAULT: '#808D8E',   // Gunmetal Grey
-          light: '#A0AAAB',
-          dark: '#5A6364',
+          50: '#F9FAFB',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
         },
         background: {
-          DEFAULT: '#FFFFFF',   // White
-          dark: '#0F1010',      // Near-black for dark mode
-        },
-        foreground: {
-          DEFAULT: '#181919',   // Black on light
-          inverse: '#FFFFFF',   // White on dark
+          DEFAULT: '#FFFFFF',     // White
+          light: '#F0F9FF',       // Very light blue
+          gray: '#F9FAFB',        // Light gray
         },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
+        display: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+      },
+      boxShadow: {
+        'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
+        'soft-lg': '0 4px 16px rgba(0, 0, 0, 0.12)',
+        'card': '0 1px 3px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.15)',
+      },
+      borderRadius: {
+        'card': '12px',
       },
       typography: {
         DEFAULT: {
           css: {
-            color: '#181919',
+            color: '#374151',
             a: {
-              color: '#264653',
+              color: '#50E3C2',
               '&:hover': {
-                color: '#2E865F',
+                color: '#3DCFB2',
               },
             },
             h1: {
-              color: '#181919',
+              color: '#111827',
             },
             h2: {
-              color: '#181919',
+              color: '#111827',
             },
             h3: {
-              color: '#264653',
+              color: '#1F2937',
             },
             code: {
-              color: '#264653',
-              backgroundColor: '#F5F5F5',
+              color: '#A78BFA',
+              backgroundColor: '#F3F4F6',
               padding: '0.2em 0.4em',
               borderRadius: '0.25em',
             },

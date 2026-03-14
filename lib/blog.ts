@@ -77,3 +77,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     return null;
   }
 }
+
+export function getLatestPosts(count: number = 6): Omit<BlogPost, 'content'>[] {
+  const allPosts = getAllPosts();
+  return allPosts.slice(0, count).map(({ content, ...post }) => post);
+}
